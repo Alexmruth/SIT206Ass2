@@ -19,7 +19,19 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
+    var currentTomatoes : UInt64 = 0;
+    var totalTomatoes : UInt64 = 0;
+    var upgradeModifier : UInt64 = 0;
+    @IBOutlet weak var tomato: UIButton!
+	@IBOutlet weak var currentTomatoLabel: UILabel!
+    
+    @IBAction func tomatoClicked(_ sender: UIButton) {
+        currentTomatoes = currentTomatoes + 1 + upgradeModifier
+        currentTomatoLabel.text = "currentTomatoes"
+    }
+    
+    
 }
 
