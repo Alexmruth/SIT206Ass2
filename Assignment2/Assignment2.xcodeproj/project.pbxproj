@@ -15,6 +15,7 @@
 		8B46D18C1EB8119800911825 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B46D18A1EB8119800911825 /* LaunchScreen.storyboard */; };
 		8B46D1971EB8119800911825 /* Assignment2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46D1961EB8119800911825 /* Assignment2Tests.swift */; };
 		8B46D1A21EB8119800911825 /* Assignment2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46D1A11EB8119800911825 /* Assignment2UITests.swift */; };
+		8B86F0471EB824B4008CCB14 /* shopTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B86F0461EB824B4008CCB14 /* shopTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8B46D19D1EB8119800911825 /* Assignment2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Assignment2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B46D1A11EB8119800911825 /* Assignment2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment2UITests.swift; sourceTree = "<group>"; };
 		8B46D1A31EB8119800911825 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B86F0461EB824B4008CCB14 /* shopTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = shopTableViewController.swift; path = ../shopTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		8B46D17D1EB8119800911825 /* Assignment2 */ = {
 			isa = PBXGroup;
 			children = (
+				8B86F0461EB824B4008CCB14 /* shopTableViewController.swift */,
 				8B46D17E1EB8119800911825 /* AppDelegate.swift */,
 				8B46D1801EB8119800911825 /* ViewController.swift */,
 				8B46D1821EB8119800911825 /* Main.storyboard */,
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B46D1871EB8119800911825 /* Assignment2.xcdatamodeld in Sources */,
+				8B86F0471EB824B4008CCB14 /* shopTableViewController.swift in Sources */,
 				8B46D1811EB8119800911825 /* ViewController.swift in Sources */,
 				8B46D17F1EB8119800911825 /* AppDelegate.swift in Sources */,
 			);
@@ -509,6 +513,7 @@
 				8B46D1A81EB8119800911825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B46D1A91EB8119800911825 /* Build configuration list for PBXNativeTarget "Assignment2Tests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +522,7 @@
 				8B46D1AB1EB8119800911825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8B46D1AC1EB8119800911825 /* Build configuration list for PBXNativeTarget "Assignment2UITests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +531,7 @@
 				8B46D1AE1EB8119800911825 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

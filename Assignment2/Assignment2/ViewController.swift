@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     
     @IBAction func tomatoClicked(_ sender: UIButton) {
         currentTomatoes = currentTomatoes + 1 + upgradeModifier
-        currentTomatoLabel.text = "currentTomatoes"
+        currentTomatoLabel.text = "\(currentTomatoes)"
     }
     
     
