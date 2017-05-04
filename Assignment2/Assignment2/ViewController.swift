@@ -32,7 +32,7 @@ class ViewController: UIViewController {
         currentTomatoes = currentTomatoes + perClick + upgradeModifier
         currentTomatoLabel.text = "\(currentTomatoes)"
     }
-    
+
     
 }
 
