@@ -8,10 +8,11 @@
 
 import UIKit
 
-var currentTomatoes : UInt64 = 0;
-var totalTomatoes : UInt64 = 0;
-var upgradeModifier : UInt64 = 0;
-public var perClick : UInt64 = 1;
+var currentTomatoes : Int64 = 0;
+var totalTomatoes : Int64 = 0;
+var upgradeModifier : Int64 = 0;
+public var perClick : Int64 = 1;
+var currentTomatoLabel: UILabel!
 
 class ViewController: UIViewController {
     

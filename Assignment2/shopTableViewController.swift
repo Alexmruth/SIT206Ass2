@@ -8,6 +8,8 @@
 
 import UIKit
 
+var price1 : Int64 = 10
+
 class shopTableViewController: UITableViewController {
 
     
@@ -41,12 +43,18 @@ class shopTableViewController: UITableViewController {
     //var ViewController: ViewController?
 
     
-    var price1 : UInt64 = 10
+    
     @IBAction func buyItem1(_ sender: UIButton) {
-        perClick = perClick + 1;
-        currentTomatoes = currentTomatoes - price1
-        price1 = price1 * 3
-
+        if currentTomatoes >= price1 {
+            perClick = perClick + 1;
+            currentTomatoes = currentTomatoes - price1;
+            price1 = price1 * 3;
+            currentTomatoLabel.text = "\(currentTomatoes)"
+            
+            testlable.text = "purchased"
+        } else {
+            testlable.text = "insufficient tomatoes"
+        }
     }
     @IBOutlet weak var testlable: UILabel!
     
