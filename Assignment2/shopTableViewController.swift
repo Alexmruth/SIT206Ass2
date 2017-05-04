@@ -10,6 +10,7 @@ import UIKit
 
 class shopTableViewController: UITableViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,12 +35,20 @@ class shopTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return 6
     }
 
+    //var ViewController: ViewController?
+
+    
+    var price1 : UInt64 = 10
     @IBAction func buyItem1(_ sender: UIButton) {
-        
+        perClick = perClick + 1;
+        currentTomatoes = currentTomatoes - price1
+        price1 = price1 * 3
+
     }
+    @IBOutlet weak var testlable: UILabel!
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

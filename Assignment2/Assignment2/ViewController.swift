@@ -8,8 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+var currentTomatoes : UInt64 = 0;
+var totalTomatoes : UInt64 = 0;
+var upgradeModifier : UInt64 = 0;
+public var perClick : UInt64 = 1;
 
+class ViewController: UIViewController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,19 +25,19 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+
     
-    var currentTomatoes : UInt64 = 0;
-    var totalTomatoes : UInt64 = 0;
-    var upgradeModifier : UInt64 = 0;
-    var perClick : UInt64 = 1;
     @IBOutlet weak var tomato: UIButton!
 	@IBOutlet weak var currentTomatoLabel: UILabel!
     
     @IBAction func tomatoClicked(_ sender: UIButton) {
         currentTomatoes = currentTomatoes + perClick + upgradeModifier
         currentTomatoLabel.text = "\(currentTomatoes)"
+        perClickLabel.text = "\(perClick)"
     }
 
+    @IBOutlet weak var perClickLabel: UILabel!
+    
     
 }
 
