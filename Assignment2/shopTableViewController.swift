@@ -52,7 +52,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - price1;
             price1 = price1 * 2;
             item1Count = item1Count + 1;
-            buyItem1Label.text = "\(price1) tomatoes"
+            buyItem1Label.text = "\(price1)"
             currentTomatoLabel?.text = "\(currentTomatoes)"
             item1PurchaseCount.text = "\(item1Count)"
         } else {
@@ -65,7 +65,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - price2;
             price2 = price2 * 2;
             item2Count = item2Count + 1;
-            buyItem2Label.text = "\(price2) tomatoes"
+            buyItem2Label.text = "\(price2)"
             currentTomatoLabel?.text = "\(currentTomatoes)"
             item2PurchaseCount.text = "\(item2Count)"
         } else {
