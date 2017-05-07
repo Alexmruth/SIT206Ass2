@@ -8,10 +8,10 @@
 
 import UIKit
 
-var currentTomatoes : Int64 = 0;
-var totalTomatoes : Int64 = 0;
-var upgradeModifier : Int64 = 0;
-public var perClick : Int64 = 1;
+var currentTomatoes : Float = 0;
+var totalTomatoes : Float = 0;
+var upgradeModifier : Float = 0;
+public var perClick : Float = 1;
 var currentTomatoLabel: UILabel!
 
 class ViewController: UIViewController {
@@ -26,6 +26,10 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func testTomatoes(_ sender: UIButton) {
+        currentTomatoes = currentTomatoes + 1000;
+        currentTomatoLabel.text = "\(currentTomatoes)"
+    }
 
     
     @IBOutlet weak var tomato: UIButton!

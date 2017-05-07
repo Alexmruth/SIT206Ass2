@@ -8,11 +8,13 @@
 
 import UIKit
 
-var price1 : Int64 = 10
-var price2 : Int64 = 100
+var price1 : Float = 10
+var price2 : Float = 100
 
 class shopTableViewController: UITableViewController {
 
+    let formatter = NumberFormatter()
+    formatter.minimumFractionDigits = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +47,14 @@ class shopTableViewController: UITableViewController {
 
     var item1Count : Int64 = 0
     var item2Count : Int64 = 0
-    
+
     @IBAction func buyItem1(_ sender: UIButton) {
         if currentTomatoes >= price1 {
             perClick = perClick + 1;
             currentTomatoes = currentTomatoes - price1;
-            price1 = price1 * 2;
+            price1 = price1 * 1.4;
+            price1.round()
+            
             item1Count = item1Count + 1;
             buyItem1Label.text = "\(price1)"
             currentTomatoLabel?.text = "\(currentTomatoes)"
@@ -63,7 +67,8 @@ class shopTableViewController: UITableViewController {
         if currentTomatoes >= price2 {
             perClick = perClick + 2;
             currentTomatoes = currentTomatoes - price2;
-            price2 = price2 * 2;
+            price2 = price2 * 1.4;
+            price2.round()
             item2Count = item2Count + 1;
             buyItem2Label.text = "\(price2)"
             currentTomatoLabel?.text = "\(currentTomatoes)"
