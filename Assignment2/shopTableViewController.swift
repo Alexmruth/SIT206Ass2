@@ -9,6 +9,7 @@
 import UIKit
 
 var price1 : Int64 = 10
+var price2 : Int64 = 100
 
 class shopTableViewController: UITableViewController {
 
@@ -43,23 +44,39 @@ class shopTableViewController: UITableViewController {
     //var ViewController: ViewController?
 
     var item1Count : Int64 = 0
+    var item2Count : Int64 = 0
     
     @IBAction func buyItem1(_ sender: UIButton) {
         if currentTomatoes >= price1 {
             perClick = perClick + 1;
             currentTomatoes = currentTomatoes - price1;
-            price1 = price1 * 3;
-            buyItem1Label.text = " Price: \(price1)"
+            price1 = price1 * 2;
+            item1Count = item1Count + 1;
+            buyItem1Label.text = "\(price1) tomatoes"
             currentTomatoLabel?.text = "\(currentTomatoes)"
             item1PurchaseCount.text = "\(item1Count)"
         } else {
-            testlable.text = "insufficient tomatoes"
+            //add popup here
+        }
+    }
+    @IBAction func buyItem2(_ sender: UIButton) {
+        if currentTomatoes >= price2 {
+            perClick = perClick + 2;
+            currentTomatoes = currentTomatoes - price2;
+            price2 = price2 * 2;
+            item2Count = item2Count + 1;
+            buyItem2Label.text = "\(price2) tomatoes"
+            currentTomatoLabel?.text = "\(currentTomatoes)"
+            item2PurchaseCount.text = "\(item2Count)"
+        } else {
+            //add popup here
         }
     }
     @IBOutlet weak var testlable: UILabel!
     @IBOutlet weak var buyItem1Label: UILabel!
+    @IBOutlet weak var buyItem2Label: UILabel!
     @IBOutlet weak var item1PurchaseCount: UILabel!
-    
+    @IBOutlet weak var item2PurchaseCount: UILabel!
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
