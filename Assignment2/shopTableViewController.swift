@@ -42,21 +42,23 @@ class shopTableViewController: UITableViewController {
 
     //var ViewController: ViewController?
 
-    
+    var item1Count : Int64 = 0
     
     @IBAction func buyItem1(_ sender: UIButton) {
         if currentTomatoes >= price1 {
             perClick = perClick + 1;
             currentTomatoes = currentTomatoes - price1;
             price1 = price1 * 3;
-            currentTomatoLabel.text = "\(currentTomatoes)"
-            
-            testlable.text = "purchased"
+            buyItem1Label.text = " Price: \(price1)"
+            currentTomatoLabel?.text = "\(currentTomatoes)"
+            item1PurchaseCount.text = "\(item1Count)"
         } else {
             testlable.text = "insufficient tomatoes"
         }
     }
     @IBOutlet weak var testlable: UILabel!
+    @IBOutlet weak var buyItem1Label: UILabel!
+    @IBOutlet weak var item1PurchaseCount: UILabel!
     
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
