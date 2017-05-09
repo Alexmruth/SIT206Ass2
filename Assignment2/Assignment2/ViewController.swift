@@ -12,7 +12,7 @@ var currentTomatoes : Float = 0;
 var totalTomatoes : Float = 0;
 var upgradeModifier : Float = 0;
 public var perClick : Float = 1;
-var autoPerClick : Float = 0;
+public var autoPerClick : Float = 0;
 var currentTomatoLabel: UILabel!
 
 class ViewController: UIViewController {
@@ -30,6 +30,7 @@ class ViewController: UIViewController {
     func update() {
         currentTomatoes = currentTomatoes + autoPerClick
         currentTomatoLabel.text = "\(currentTomatoes)"
+        perClickLabel.text = "\(perClick)"
     }
     
     @IBAction func testTomatoes(_ sender: UIButton) {

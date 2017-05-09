@@ -72,6 +72,7 @@
                     <connections>
                         <outlet property="currentTomatoLabel" destination="VgT-Qb-7l5" id="von-qb-baf"/>
                         <outlet property="perClickLabel" destination="XhE-gO-NS7" id="r6V-bX-BmG"/>
+                        <outlet property="tomato" destination="22F-2D-I0R" id="L0A-lA-Jml"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULa-ay-iJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -232,8 +233,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+5 click" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPj-61-sZj">
-                                                    <rect key="frame" x="8" y="18" width="57" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="+5 per second" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fPj-61-sZj">
+                                                    <rect key="frame" x="8" y="18" width="83" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <nil key="textColor"/>
@@ -246,6 +247,9 @@
                                                     <state key="normal" title="Buy">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="buyItem3:" destination="BIn-MO-3NN" eventType="touchUpInside" id="Jyk-lW-Iou"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJi-an-CpY">
                                                     <rect key="frame" x="346" y="11" width="21" height="21"/>
@@ -295,8 +299,10 @@
                     <connections>
                         <outlet property="buyItem1Label" destination="dsY-0U-z47" id="jBh-ZO-y6l"/>
                         <outlet property="buyItem2Label" destination="24w-Fa-pQe" id="3O3-Y6-7Zu"/>
+                        <outlet property="buyItem3Label" destination="GMJ-vS-OqC" id="5V1-dn-leu"/>
                         <outlet property="item1PurchaseCount" destination="gJN-WW-Xks" id="Y7V-sG-yLU"/>
                         <outlet property="item2PurchaseCount" destination="EnX-HO-mwb" id="72R-4X-zE2"/>
+                        <outlet property="item3PurchaseCount" destination="jJi-an-CpY" id="hm9-po-KHP"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn2-w3-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
