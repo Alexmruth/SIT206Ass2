@@ -8,15 +8,17 @@
 
 import UIKit
 
-var item1Count : Int64 = 0
-var item2Count : Int64 = 0
-var item3Count : Int64 = 0
 
-var price1 : Float = 10
-var price2 : Float = 100
-var price3 : Float = 5000
 
 class shopTableViewController: UITableViewController {
+    
+    var item1Count : Int64 = 0
+    var item2Count : Int64 = 0
+    var item3Count : Int64 = 0
+    
+    var price1 : Float = 10
+    var price2 : Float = 100
+    var price3 : Float = 500
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +51,14 @@ class shopTableViewController: UITableViewController {
 
 
     
-    @IBOutlet weak var buyItem1Label: UILabel!
-    @IBOutlet weak var buyItem2Label: UILabel!
-    @IBOutlet weak var buyItem3Label: UILabel!
+    @IBOutlet weak var price1Label: UILabel!
+    @IBOutlet weak var price2Label: UILabel!
+    @IBOutlet weak var price3Label: UILabel!
+    @IBOutlet weak var price4Label: UILabel!
     @IBOutlet weak var item1PurchaseCount: UILabel!
     @IBOutlet weak var item2PurchaseCount: UILabel!
     @IBOutlet weak var item3PurchaseCount: UILabel!
+    @IBOutlet weak var item4PurchaseCount: UILabel!
     
     @IBAction func buyItem1(_ sender: UIButton) {
         
@@ -63,10 +67,8 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - price1;
             price1 = price1 * 1.2;
             price1.round()
-            
             item1Count = item1Count + 1;
-            buyItem1Label.text = "\(price1)"
-            currentTomatoLabel?.text = "\(currentTomatoes)"
+            price1Label.text = "\(price1)"
             item1PurchaseCount.text = "\(item1Count)"
         } else {
             //add popup here
@@ -79,8 +81,7 @@ class shopTableViewController: UITableViewController {
             price2 = price2 * 1.2;
             price2.round()
             item2Count = item2Count + 1;
-            buyItem2Label.text = "\(price2)"
-            currentTomatoLabel?.text = "\(currentTomatoes)"
+            price2Label.text = "\(price2)"
             item2PurchaseCount.text = "\(item2Count)"
         } else {
             //add popup here
@@ -93,12 +94,13 @@ class shopTableViewController: UITableViewController {
             price3 = price3 * 1.2;
             price3.round()
             item3Count = item3Count + 1;
-            buyItem3Label.text = "\(price3)"
-            currentTomatoLabel?.text = "\(currentTomatoes)"
-            item2PurchaseCount.text = "\(item2Count)"
+            price3Label.text = "\(price3)"
+            item3PurchaseCount.text = "\(item3Count)"
         } else {
             //add popup here
         }
+    }
+    @IBAction func buyItem4(_ sender: UIButton) {
     }
 
 

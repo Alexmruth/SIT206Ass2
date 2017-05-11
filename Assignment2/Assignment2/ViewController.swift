@@ -11,16 +11,18 @@ import UIKit
 var currentTomatoes : Float = 0;
 var totalTomatoes : Float = 0;
 var upgradeModifier : Float = 0;
-public var perClick : Float = 1;
-public var autoPerClick : Float = 0;
-var currentTomatoLabel: UILabel!
+var perClick : Float = 1;
+var autoPerClick : Float = 0;
+var tomatoClickedVar : Bool = false;
 
 class ViewController: UIViewController {
     var timer: Timer?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
+        timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,24 +30,31 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     func update() {
-        currentTomatoes = currentTomatoes + autoPerClick
+        currentTomatoes = currentTomatoes + (autoPerClick / 20)
         currentTomatoLabel.text = "\(currentTomatoes)"
         perClickLabel.text = "\(perClick)"
+        autoPerSecondLabel.text = "\(autoPerClick)"
+        if tomatoClickedVar == true
+        {
+            currentTomatoes = currentTomatoes + perClick + upgradeModifier
+        }
     }
     
-    @IBAction func testTomatoes(_ sender: UIButton) {
-        currentTomatoes = currentTomatoes + 1000;
-        currentTomatoLabel.text = "\(currentTomatoes)"
-    }
+    
 
     
     @IBOutlet weak var tomato: UIButton!
 	@IBOutlet weak var currentTomatoLabel: UILabel!
+    @IBOutlet weak var autoPerSecondLabel: UILabel!
+    
+    @IBAction func testTomatoes(_ sender: UIButton) {
+        currentTomatoes = currentTomatoes + 100000;
+    }
     
     @IBAction func tomatoClicked(_ sender: UIButton) {
-        currentTomatoes = currentTomatoes + perClick + upgradeModifier
-        currentTomatoLabel.text = "\(currentTomatoes)"
-        perClickLabel.text = "\(perClick)"
+        tomatoClickedVar = true
+        tomatoClickedVar = false
+        //currentTomatoes = currentTomatoes + perClick + upgradeModifier
     }
 
     @IBOutlet weak var perClickLabel: UILabel!
