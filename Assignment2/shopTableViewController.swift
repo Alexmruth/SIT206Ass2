@@ -62,6 +62,8 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var item3PurchaseCount: UILabel!
     @IBOutlet weak var item4PurchaseCount: UILabel!
     
+    @IBOutlet weak var doublePower1: UIButton!
+    
     @IBAction func buyItem1(_ sender: UIButton) {
         
         if currentTomatoes >= price1 {
@@ -72,6 +74,10 @@ class shopTableViewController: UITableViewController {
             item1Count = item1Count + 1;
             price1Label.text = "\(price1)"
             item1PurchaseCount.text = "\(item1Count)"
+            
+            if item1Count >= 25 {
+                doublePower1.isHidden = false
+            }
         } else {
             //add popup here
         }
