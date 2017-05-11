@@ -19,6 +19,8 @@ class shopTableViewController: UITableViewController {
     
     var CP1 : Float = 1
     
+    var DP1Count = 0
+    
     var price1 : Float = 10
     var price2 : Float = 100
     var price3 : Float = 500
@@ -77,7 +79,7 @@ class shopTableViewController: UITableViewController {
             price1Label.text = "\(price1)"
             item1PurchaseCount.text = "\(item1Count)"
             
-            if item1Count >= 25 {
+            if item1Count >= 25 && DP1Count == 0 {
                 doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
@@ -129,13 +131,14 @@ class shopTableViewController: UITableViewController {
 
 
     @IBAction func doublePower1(_ sender: UIButton) {
+        
         if currentTomatoes >= 5000 {
             currentTomatoes = currentTomatoes - 5000
             perClick = perClick + Float(item1Count)
             CP1 *= 2
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
-            
+            DP1Count = 1
         }
     }
 
