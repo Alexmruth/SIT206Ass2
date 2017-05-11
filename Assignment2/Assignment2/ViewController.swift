@@ -25,40 +25,38 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         
             }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBOutlet weak var tomato: UIButton!
+    @IBOutlet weak var currentTomatoLabel: UILabel!
+    @IBOutlet weak var autoPerSecondLabel: UILabel!
+    @IBOutlet weak var perClickLabel: UILabel!
+    
     func update() {
-        currentTomatoes = currentTomatoes + (autoPerClick / 20)
-        // currentTomatoes.round()
+        currentTomatoes += (autoPerClick / 20)
         currentTomatoLabel.text = "\(currentTomatoes)"
         perClickLabel.text = "\(perClick)"
         autoPerSecondLabel.text = "\(autoPerClick)"
     }
     
-    
-
     @IBAction func tomatoClicked(_ sender: UIButton) {
-        currentTomatoes = currentTomatoes + perClick + upgradeModifier
-
+        currentTomatoes += perClick + upgradeModifier
     }
     
-    @IBOutlet weak var tomato: UIButton!
-	@IBOutlet weak var currentTomatoLabel: UILabel!
-    @IBOutlet weak var autoPerSecondLabel: UILabel!
+    
     
     @IBAction func testTomatoes(_ sender: UIButton) {
         currentTomatoes = currentTomatoes + 100000;
     }
 
 
-    @IBOutlet weak var perClickLabel: UILabel!
+    
 
     
 }

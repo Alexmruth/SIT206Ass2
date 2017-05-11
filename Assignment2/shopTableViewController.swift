@@ -17,6 +17,8 @@ class shopTableViewController: UITableViewController {
     var item3Count : Int64 = 0
     var item4Count : Int64 = 0
     
+    var CP1 : Float = 1
+    
     var price1 : Float = 10
     var price2 : Float = 100
     var price3 : Float = 500
@@ -67,15 +69,16 @@ class shopTableViewController: UITableViewController {
     @IBAction func buyItem1(_ sender: UIButton) {
         
         if currentTomatoes >= price1 {
-            perClick = perClick + 1;
+            perClick = perClick + CP1;
             currentTomatoes = currentTomatoes - price1;
-            price1 = price1 * 1.2;
+            price1 = price1 * 1.1;
             price1.round()
             item1Count = item1Count + 1;
             price1Label.text = "\(price1)"
             item1PurchaseCount.text = "\(item1Count)"
             
             if item1Count >= 25 {
+                doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
         } else {
@@ -86,7 +89,7 @@ class shopTableViewController: UITableViewController {
         if currentTomatoes >= price2 {
             perClick = perClick + 2;
             currentTomatoes = currentTomatoes - price2;
-            price2 = price2 * 1.2;
+            price2 = price2 * 1.1;
             price2.round()
             item2Count = item2Count + 1;
             price2Label.text = "\(price2)"
@@ -99,8 +102,8 @@ class shopTableViewController: UITableViewController {
     @IBAction func buyAuto1(_ sender: UIButton) {
         if currentTomatoes >= price3 {
             autoPerClick = autoPerClick + 5;
-            currentTomatoes = currentTomatoes - price3;
-            price3 = price3 * 1.2;
+            currentTomatoes -= price3;
+            price3 = price3 * 1.1;
             price3.round()
             item3Count = item3Count + 1;
             price3Label.text = "\(price3)"
@@ -114,7 +117,7 @@ class shopTableViewController: UITableViewController {
         if currentTomatoes >= price4 {
             autoPerClick = autoPerClick + 10;
             currentTomatoes = currentTomatoes - price4;
-            price4 = price4 * 1.2;
+            price4 = price4 * 1.1;
             price4.round()
             item4Count = item4Count + 1;
             price4Label.text = "\(price4)"
@@ -125,6 +128,16 @@ class shopTableViewController: UITableViewController {
     }
 
 
+    @IBAction func doublePower1(_ sender: UIButton) {
+        if currentTomatoes >= 5000 {
+            currentTomatoes = currentTomatoes - 5000
+            perClick = perClick + Float(item1Count)
+            CP1 *= 2
+            doublePower1.isEnabled = false
+            doublePower1.isHidden = true
+            
+        }
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
