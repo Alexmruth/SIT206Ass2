@@ -14,15 +14,14 @@ var upgradeModifier : Float = 0;
 var perClick : Float = 1;
 var autoPerClick : Float = 0;
 
- extension Float {
+/* extension Float {
     var cleanValue: String {
         return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%0.F", self) : String(self)
     }
-}
+} */
 
 class ViewController: UIViewController {
     var timer: Timer?
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +36,7 @@ class ViewController: UIViewController {
     }
     func update() {
         currentTomatoes = currentTomatoes + (autoPerClick / 20)
+        // currentTomatoes.round()
         currentTomatoLabel.text = "\(currentTomatoes)"
         perClickLabel.text = "\(perClick)"
         autoPerSecondLabel.text = "\(autoPerClick)"
