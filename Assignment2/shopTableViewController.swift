@@ -41,7 +41,7 @@ class shopTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,7 +89,8 @@ class shopTableViewController: UITableViewController {
             //add popup here
         }
     }
-   @IBAction func buyItem3(_ sender: UIButton) {
+
+    @IBAction func buyAuto1(_ sender: UIButton) {
         if currentTomatoes >= price3 {
             autoPerClick = autoPerClick + 5;
             currentTomatoes = currentTomatoes - price3;
@@ -101,8 +102,9 @@ class shopTableViewController: UITableViewController {
         } else {
             //add popup here
         }
+
     }
-    @IBAction func buyItem4(_ sender: UIButton) {
+    @IBAction func buyAuto2(_ sender: UIButton) {
         if currentTomatoes >= price4 {
             autoPerClick = autoPerClick + 10;
             currentTomatoes = currentTomatoes - price4;
@@ -115,6 +117,7 @@ class shopTableViewController: UITableViewController {
             //add popup here
         }
     }
+
 
 
     /*
