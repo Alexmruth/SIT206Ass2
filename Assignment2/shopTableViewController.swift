@@ -15,10 +15,12 @@ class shopTableViewController: UITableViewController {
     var item1Count : Int64 = 0
     var item2Count : Int64 = 0
     var item3Count : Int64 = 0
+    var item4Count : Int64 = 0
     
     var price1 : Float = 10
     var price2 : Float = 100
     var price3 : Float = 500
+    var price4 : Float = 1250
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,6 +103,17 @@ class shopTableViewController: UITableViewController {
         }
     }
     @IBAction func buyItem4(_ sender: UIButton) {
+        if currentTomatoes >= price4 {
+            autoPerClick = autoPerClick + 10;
+            currentTomatoes = currentTomatoes - price4;
+            price4 = price4 * 1.2;
+            price4.round()
+            item4Count = item4Count + 1;
+            price4Label.text = "\(price4)"
+            item4PurchaseCount.text = "\(item4Count)"
+        } else {
+            //add popup here
+        }
     }
 
 

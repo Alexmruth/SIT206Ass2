@@ -13,17 +13,23 @@ var totalTomatoes : Float = 0;
 var upgradeModifier : Float = 0;
 var perClick : Float = 1;
 var autoPerClick : Float = 0;
-var tomatoClickedVar : Bool = false;
+
+ extension Float {
+    var cleanValue: String {
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%0.F", self) : String(self)
+    }
+}
 
 class ViewController: UIViewController {
     var timer: Timer?
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
-    }
+        
+            }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -34,14 +40,14 @@ class ViewController: UIViewController {
         currentTomatoLabel.text = "\(currentTomatoes)"
         perClickLabel.text = "\(perClick)"
         autoPerSecondLabel.text = "\(autoPerClick)"
-        if tomatoClickedVar == true
-        {
-            currentTomatoes = currentTomatoes + perClick + upgradeModifier
-        }
     }
     
     
 
+    @IBAction func tomatoClicked(_ sender: UIButton) {
+        currentTomatoes = currentTomatoes + perClick + upgradeModifier
+
+    }
     
     @IBOutlet weak var tomato: UIButton!
 	@IBOutlet weak var currentTomatoLabel: UILabel!
@@ -50,17 +56,10 @@ class ViewController: UIViewController {
     @IBAction func testTomatoes(_ sender: UIButton) {
         currentTomatoes = currentTomatoes + 100000;
     }
-    
-    @IBAction func tomatoClicked(_ sender: UIButton) {
-        tomatoClickedVar = true
-        tomatoClickedVar = false
-        //currentTomatoes = currentTomatoes + perClick + upgradeModifier
-    }
+
 
     @IBOutlet weak var perClickLabel: UILabel!
 
-
-    
     
 }
 
