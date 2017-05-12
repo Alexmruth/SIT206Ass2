@@ -18,8 +18,12 @@ class shopTableViewController: UITableViewController {
     var item4Count : Int64 = 0
     
     var CP1 : Float = 1
+    var CP2 : Float = 2
+    var CP3 : Float = 1
     
     var DP1Count = 0
+    var DP2Count = 0
+    var DP3Count = 0
     
     var price1 : Float = 10
     var price2 : Float = 100
@@ -28,12 +32,7 @@ class shopTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -67,6 +66,7 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var item4PurchaseCount: UILabel!
     
     @IBOutlet weak var doublePower1: UIButton!
+    @IBOutlet weak var doublePower2: UIButton!
     
     @IBAction func buyItem1(_ sender: UIButton) {
         
@@ -89,13 +89,18 @@ class shopTableViewController: UITableViewController {
     }
     @IBAction func buyItem2(_ sender: UIButton) {
         if currentTomatoes >= price2 {
-            perClick = perClick + 2;
+            perClick = perClick + CP2;
             currentTomatoes = currentTomatoes - price2;
             price2 = price2 * 1.1;
             price2.round()
             item2Count = item2Count + 1;
             price2Label.text = "\(price2)"
             item2PurchaseCount.text = "\(item2Count)"
+            
+            if item2Count >= 25 && DP2Count == 0 {
+                doublePower2.isEnabled = true
+                doublePower2.isHidden = false
+            }
         } else {
             //add popup here
         }
@@ -141,6 +146,19 @@ class shopTableViewController: UITableViewController {
             DP1Count = 1
         }
     }
+    @IBAction func doublePower2(_ sender: UIButton) {
+        if currentTomatoes >= 12000 {
+            currentTomatoes = currentTomatoes - 12000
+            perClick = perClick + Float(item2Count)
+            CP2 *= 2
+            doublePower2.isEnabled = false
+            doublePower2.isHidden = true
+            DP2Count = 1
+            
+        }
+    }
+    
+    
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

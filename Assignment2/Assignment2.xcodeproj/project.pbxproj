@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		501256FB1EC67D830078E64B /* customButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501256FA1EC67D830078E64B /* customButton.swift */; };
 		8B46D17F1EB8119800911825 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46D17E1EB8119800911825 /* AppDelegate.swift */; };
 		8B46D1811EB8119800911825 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B46D1801EB8119800911825 /* ViewController.swift */; };
 		8B46D1841EB8119800911825 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B46D1821EB8119800911825 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		501256FA1EC67D830078E64B /* customButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = customButton.swift; sourceTree = "<group>"; };
 		8B46D17B1EB8119800911825 /* Assignment2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assignment2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B46D17E1EB8119800911825 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B46D1801EB8119800911825 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				8B46D1801EB8119800911825 /* ViewController.swift */,
 				8B46D17E1EB8119800911825 /* AppDelegate.swift */,
 				8B46D1821EB8119800911825 /* Main.storyboard */,
+				501256FA1EC67D830078E64B /* customButton.swift */,
 				8BDD1E921EC41CBF00ADD760 /* CustomTabBarViewController.swift */,
 				8BDD1E941EC41D2B00ADD760 /* CustomTabBar.swift */,
 				8BDD1E961EC4226400ADD760 /* CustomTabBarItem.swift */,
@@ -278,6 +281,7 @@
 				8BDD1E931EC41CBF00ADD760 /* CustomTabBarViewController.swift in Sources */,
 				8BDD1E971EC4226400ADD760 /* CustomTabBarItem.swift in Sources */,
 				8B86F0471EB824B4008CCB14 /* shopTableViewController.swift in Sources */,
+				501256FB1EC67D830078E64B /* customButton.swift in Sources */,
 				8B46D1811EB8119800911825 /* ViewController.swift in Sources */,
 				8BDD1E951EC41D2B00ADD760 /* CustomTabBar.swift in Sources */,
 				8B46D17F1EB8119800911825 /* AppDelegate.swift in Sources */,
