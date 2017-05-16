@@ -40,6 +40,7 @@ class ViewController: UIViewController {
     
     func update() {
         currentTomatoes += (autoPerClick / 20)
+        ceilf(currentTomatoes)
         currentTomatoLabel.text = "\(currentTomatoes)"
         perClickLabel.text = "\(perClick)"
         autoPerSecondLabel.text = "\(autoPerClick)"

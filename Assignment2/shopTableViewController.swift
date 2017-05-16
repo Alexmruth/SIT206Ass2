@@ -93,6 +93,13 @@ class shopTableViewController: UITableViewController {
             item1PurchaseCount.text = "\(item1Count)"
             
             if item1Count >= 25 && DP1 == 0 {
+                doublePower1.setTitle("double power 5,000 tomatoes", for: .normal)
+                doublePower1.titleLabel?.font = UIFont(ofSize: 10)
+                doublePower1.isEnabled = true
+                doublePower1.isHidden = false
+            }
+            if item1Count >= 50 && DP1 == 1 {
+                
                 doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
@@ -157,14 +164,24 @@ class shopTableViewController: UITableViewController {
     }
     @IBAction func doublePower1(_ sender: UIButton) {
         
-        if currentTomatoes >= 5000 {
+        if currentTomatoes >= 5000 && DP1 == 0{
             currentTomatoes = currentTomatoes - 5000
+            perClick = perClick + (item1Count * CP1)
+            CP1 *= 2
+            clickPowerLabel1.text = "+\(CP1) click"
+            DP1 = 1
+            doublePower1.isEnabled = false
+            doublePower1.isHidden = true
+            doublePower1.setTitle("double power 25,000 tomatoes", for: .normal)
+            
+        } else if currentTomatoes >= 25000 && DP1 == 1{
+            currentTomatoes = currentTomatoes - 25000
             perClick = perClick + (item1Count * CP1)
             CP1 *= 2
             clickPowerLabel1.text = "+\(CP1) click"
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
-            DP1 = 1
+            DP1 = 2
         }
     }
     @IBAction func doublePower2(_ sender: UIButton) {
