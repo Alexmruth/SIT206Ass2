@@ -79,7 +79,7 @@ class shopTableViewController: UITableViewController {
             price1Label.text = "\(price1)"
             item1PurchaseCount.text = "\(item1Count)"
             
-            if item1Count >= 25 && DP1Count == 0 {
+            if item1Count >= 50 && DP1Count == 0 {
                 doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
@@ -97,7 +97,7 @@ class shopTableViewController: UITableViewController {
             price2Label.text = "\(price2)"
             item2PurchaseCount.text = "\(item2Count)"
             
-            if item2Count >= 25 && DP2Count == 0 {
+            if item2Count >= 50 && DP2Count == 0 {
                 doublePower2.isEnabled = true
                 doublePower2.isHidden = false
             }
