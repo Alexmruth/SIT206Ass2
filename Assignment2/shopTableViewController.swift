@@ -24,11 +24,14 @@ class shopTableViewController: UITableViewController {
     var DP1 = 0
     var DP2 = 0
     var DP3 = 0
+    var DP4 = 0
+    var DP5 = 0
     
     var price1 : Float = 15
     var price2 : Float = 100
     var price3 : Float = 1100
-    var price4 : Float = 1250
+    var price4 : Float = 12000
+    var price5 : Float = 135000
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,19 +62,24 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var clickPowerLabel2: UILabel!
     @IBOutlet weak var clickPowerLabel3: UILabel!
     @IBOutlet weak var clickPowerLabel4: UILabel!
+    @IBOutlet weak var clickPowerLabel5: UILabel!
     
     @IBOutlet weak var price1Label: UILabel!
     @IBOutlet weak var price2Label: UILabel!
     @IBOutlet weak var price3Label: UILabel!
     @IBOutlet weak var price4Label: UILabel!
+    @IBOutlet weak var price5Label: UILabel!
+    
     @IBOutlet weak var item1PurchaseCount: UILabel!
     @IBOutlet weak var item2PurchaseCount: UILabel!
     @IBOutlet weak var item3PurchaseCount: UILabel!
     @IBOutlet weak var item4PurchaseCount: UILabel!
+    @IBOutlet weak var item5PurchaseCount: UILabel!
     
     @IBOutlet weak var doublePower1: UIButton!
     @IBOutlet weak var doublePower2: UIButton!
     @IBOutlet weak var doublePower3: UIButton!
+    @IBOutlet weak var doublePower4: UIButton!
     
     @IBAction func buyItem1(_ sender: UIButton) {
         
@@ -129,36 +137,24 @@ class shopTableViewController: UITableViewController {
             //add popup here
         }
     }
-
-    @IBAction func buyAuto1(_ sender: UIButton) {
-        if currentTomatoes >= price3 {
-            autoPerClick = autoPerClick + 5;
-            currentTomatoes -= price3;
-            price3 = price3 * 1.1;
-            price3.round()
-            item3Count = item3Count + 1;
-            price3Label.text = "\(price3)"
-            item3PurchaseCount.text = "\(item3Count)"
-        } else {
-            //add popup here
-        }
-
-    }
-    @IBAction func buyAuto2(_ sender: UIButton) {
+    @IBAction func buyItem4(_ sender: UIButton) {
         if currentTomatoes >= price4 {
-            autoPerClick = autoPerClick + 10;
+            perClick = perClick + CP4;
             currentTomatoes = currentTomatoes - price4;
-            price4 = price4 * 1.1;
+            price4 = 12000 * powf(1.15, item4Count);
             price4.round()
             item4Count = item4Count + 1;
             price4Label.text = "\(price4)"
             item4PurchaseCount.text = "\(item4Count)"
+            
+            if item4Count >= 25 && DP4 == 0 {
+                doublePower4.isEnabled = true
+                doublePower4.isHidden = false
+            }
         } else {
             //add popup here
         }
     }
-
-
     @IBAction func doublePower1(_ sender: UIButton) {
         
         if currentTomatoes >= 5000 {
@@ -195,7 +191,48 @@ class shopTableViewController: UITableViewController {
             
         }
     }
+    @IBAction func doublePower4(_ sender: UIButton) {
+        if currentTomatoes >= 1430000 {
+            currentTomatoes = currentTomatoes - 1430000
+            perClick = perClick + (item4Count * CP4)
+            CP4 *= 2
+            clickPowerLabel4.text = "+\(CP4) click"
+            doublePower4.isEnabled = false
+            doublePower4.isHidden = true
+            DP4 = 1
+            
+        }
+    }
     
+    @IBAction func buyAuto1(_ sender: UIButton) {
+        if currentTomatoes >= price3 {
+            autoPerClick = autoPerClick + 5;
+            currentTomatoes -= price3;
+            price3 = price3 * 1.1;
+            price3.round()
+            item3Count = item3Count + 1;
+            price3Label.text = "\(price3)"
+            item3PurchaseCount.text = "\(item3Count)"
+        } else {
+            //add popup here
+        }
+
+    }
+    @IBAction func buyAuto2(_ sender: UIButton) {
+        if currentTomatoes >= price4 {
+            autoPerClick = autoPerClick + 10;
+            currentTomatoes = currentTomatoes - price4;
+            price4 = price4 * 1.1;
+            price4.round()
+            item4Count = item4Count + 1;
+            price4Label.text = "\(price4)"
+            item4PurchaseCount.text = "\(item4Count)"
+        } else {
+            //add popup here
+        }
+    }
+
+
     
 
     /*
