@@ -15,6 +15,8 @@ class shopTableViewController: UITableViewController {
     var item2Count : Float = 0
     var item3Count : Float = 0
     var item4Count : Float = 0
+    var item1AutoCount : Float = 0
+    var item2AutoCount : Float = 0
     
     var CP1 : Float = 1
     var CP2 : Float = 2
@@ -33,9 +35,11 @@ class shopTableViewController: UITableViewController {
     var price4 : Float = 12000
     var price5 : Float = 135000
     
+    var price1Auto : Float = 500
+    var price2Auto : Float = 1250
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -52,7 +56,7 @@ class shopTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 10
+        return 6
     }
 
     //var ViewController: ViewController?
@@ -69,12 +73,16 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var price3Label: UILabel!
     @IBOutlet weak var price4Label: UILabel!
     @IBOutlet weak var price5Label: UILabel!
+    @IBOutlet weak var price1AutoLabel: UILabel!
+    @IBOutlet weak var price2AutoLabel: UILabel!
     
     @IBOutlet weak var item1PurchaseCount: UILabel!
     @IBOutlet weak var item2PurchaseCount: UILabel!
     @IBOutlet weak var item3PurchaseCount: UILabel!
     @IBOutlet weak var item4PurchaseCount: UILabel!
     @IBOutlet weak var item5PurchaseCount: UILabel!
+    @IBOutlet weak var item1AutoPurchaseCount: UILabel!
+    @IBOutlet weak var item2AutoPurchaseCount: UILabel!
     
     @IBOutlet weak var doublePower1: UIButton!
     @IBOutlet weak var doublePower2: UIButton!
@@ -93,13 +101,6 @@ class shopTableViewController: UITableViewController {
             item1PurchaseCount.text = "\(item1Count)"
             
             if item1Count >= 25 && DP1 == 0 {
-                doublePower1.setTitle("double power 5,000 tomatoes", for: .normal)
-                doublePower1.titleLabel?.font = UIFont(ofSize: 10)
-                doublePower1.isEnabled = true
-                doublePower1.isHidden = false
-            }
-            if item1Count >= 50 && DP1 == 1 {
-                
                 doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
@@ -172,16 +173,6 @@ class shopTableViewController: UITableViewController {
             DP1 = 1
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
-            doublePower1.setTitle("double power 25,000 tomatoes", for: .normal)
-            
-        } else if currentTomatoes >= 25000 && DP1 == 1{
-            currentTomatoes = currentTomatoes - 25000
-            perClick = perClick + (item1Count * CP1)
-            CP1 *= 2
-            clickPowerLabel1.text = "+\(CP1) click"
-            doublePower1.isEnabled = false
-            doublePower1.isHidden = true
-            DP1 = 2
         }
     }
     @IBAction func doublePower2(_ sender: UIButton) {
@@ -222,7 +213,7 @@ class shopTableViewController: UITableViewController {
     }
     
     @IBAction func buyAuto1(_ sender: UIButton) {
-        if currentTomatoes >= price3 {
+        if currentTomatoes >= price1Auto {
             autoPerClick = autoPerClick + 5;
             currentTomatoes -= price3;
             price3 = price3 * 1.1;
@@ -236,7 +227,7 @@ class shopTableViewController: UITableViewController {
 
     }
     @IBAction func buyAuto2(_ sender: UIButton) {
-        if currentTomatoes >= price4 {
+        if currentTomatoes >= price2Auto {
             autoPerClick = autoPerClick + 10;
             currentTomatoes = currentTomatoes - price4;
             price4 = price4 * 1.1;
