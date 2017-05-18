@@ -8,38 +8,38 @@
 
 import UIKit
 
+var item1Count : Float = 0
+var item2Count : Float = 0
+var item3Count : Float = 0
+var item4Count : Float = 0
+var item1AutoCount : Float = 0
+var item2AutoCount : Float = 0
+
+var price1 : Float = 15
+var price2 : Float = 100
+var price3 : Float = 1100
+var price4 : Float = 12000
+var price5 : Float = 135000
+
+var price1Auto : Float = 500
+var price2Auto : Float = 1250
+
+var CP1 : Float = 1
+var CP2 : Float = 2
+var CP3 : Float = 10
+var CP4 : Float = 45
+
+var DP1 = 0
+var DP2 = 0
+var DP3 = 0
+var DP4 = 0
+var DP5 = 0
 
 class shopTableViewController: UITableViewController {
-    
-    var item1Count : Float = 0
-    var item2Count : Float = 0
-    var item3Count : Float = 0
-    var item4Count : Float = 0
-    var item1AutoCount : Float = 0
-    var item2AutoCount : Float = 0
-    
-    var CP1 : Float = 1
-    var CP2 : Float = 2
-    var CP3 : Float = 10
-    var CP4 : Float = 45
-    
-    var DP1 = 0
-    var DP2 = 0
-    var DP3 = 0
-    var DP4 = 0
-    var DP5 = 0
-    
-    var price1 : Float = 15
-    var price2 : Float = 100
-    var price3 : Float = 1100
-    var price4 : Float = 12000
-    var price5 : Float = 135000
-    
-    var price1Auto : Float = 500
-    var price2Auto : Float = 1250
-    
+    var timer : Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
@@ -89,6 +89,35 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var doublePower3: UIButton!
     @IBOutlet weak var doublePower4: UIButton!
     
+    func update(){
+        price1Label.text = "\(Int(price1))"
+        item1PurchaseCount.text = "\(Int(item1Count))"
+        price2Label.text = "\(Int(price2))"
+        item2PurchaseCount.text = "\(Int(item2Count))"
+        price3Label.text = "\(Int(price3))"
+        item3PurchaseCount.text = "\(Int(item3Count))"
+        price4Label.text = "\(Int(price4))"
+        item4PurchaseCount.text = "\(Int(item4Count))"
+        clickPowerLabel1.text = "+\(Int(CP1)) click"
+        clickPowerLabel2.text = "+\(Int(CP2)) click"
+        clickPowerLabel3.text = "+\(Int(CP3)) click"
+        clickPowerLabel4.text = "+\(Int(CP4)) click"
+        price1AutoLabel.text = "\(Int(price1Auto))"
+        item1AutoPurchaseCount.text = "\(Int(item1AutoCount))"
+        price2AutoLabel.text = "\(Int(price2Auto))"
+        item2AutoPurchaseCount.text = "\(Int(item2AutoCount))"
+    }
+    
+    func cantAfford() {
+        let alertController = UIAlertController(title: "Sorry!", message : "Insufficient tomatoes", preferredStyle: .alert)
+        let resetAction = UIAlertAction(title: "Okay", style: .default, handler:
+            {
+                (action) in alertController.dismiss(animated: true, completion: nil)
+        })
+        
+        alertController.addAction(resetAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
     @IBAction func buyItem1(_ sender: UIButton) {
         
         if currentTomatoes >= price1 {
@@ -105,7 +134,7 @@ class shopTableViewController: UITableViewController {
                 doublePower1.isHidden = false
             }
         } else {
-            //add popup here
+            cantAfford()
         }
     }
     @IBAction func buyItem2(_ sender: UIButton) {
@@ -123,7 +152,7 @@ class shopTableViewController: UITableViewController {
                 doublePower2.isHidden = false
             }
         } else {
-            //add popup here
+            cantAfford()
         }
     }
 
@@ -142,7 +171,7 @@ class shopTableViewController: UITableViewController {
                 doublePower3.isHidden = false
             }
         } else {
-            //add popup here
+            cantAfford()
         }
     }
     @IBAction func buyItem4(_ sender: UIButton) {
@@ -160,7 +189,7 @@ class shopTableViewController: UITableViewController {
                 doublePower4.isHidden = false
             }
         } else {
-            //add popup here
+            cantAfford()
         }
     }
     @IBAction func doublePower1(_ sender: UIButton) {
@@ -173,6 +202,8 @@ class shopTableViewController: UITableViewController {
             DP1 = 1
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
+        } else {
+            cantAfford()
         }
     }
     @IBAction func doublePower2(_ sender: UIButton) {
@@ -184,7 +215,8 @@ class shopTableViewController: UITableViewController {
             doublePower2.isEnabled = false
             doublePower2.isHidden = true
             DP2 = 1
-            
+        } else {
+            cantAfford()
         }
     }
     @IBAction func doublePower3(_ sender: UIButton) {
@@ -196,7 +228,8 @@ class shopTableViewController: UITableViewController {
             doublePower3.isEnabled = false
             doublePower3.isHidden = true
             DP3 = 1
-            
+        } else {
+            cantAfford()
         }
     }
     @IBAction func doublePower4(_ sender: UIButton) {
@@ -208,7 +241,8 @@ class shopTableViewController: UITableViewController {
             doublePower4.isEnabled = false
             doublePower4.isHidden = true
             DP4 = 1
-            
+        } else {
+            cantAfford()
         }
     }
     
@@ -222,7 +256,7 @@ class shopTableViewController: UITableViewController {
             price1AutoLabel.text = "\(Int(price1Auto))"
             item1AutoPurchaseCount.text = "\(Int(item1AutoCount))"
         } else {
-            //add popup here
+            cantAfford()
         }
 
     }
@@ -236,7 +270,7 @@ class shopTableViewController: UITableViewController {
             price2AutoLabel.text = "\(Int(price2Auto))"
             item2AutoPurchaseCount.text = "\(Int(item2AutoCount))"
         } else {
-            //add popup here
+            cantAfford()
         }
     }
 

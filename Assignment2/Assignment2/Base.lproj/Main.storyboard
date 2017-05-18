@@ -20,13 +20,31 @@
                     <view key="view" contentMode="scaleToFill" id="zpY-hP-8yW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-8x-TEj">
+                                <rect key="frame" x="40" y="145" width="295" height="376"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Tomato Tycoon is a clicker game (also known as incremental or idle games) where the aim of the game is to click the tomato to earn more tomatoes. The player can spend the tomatoes they have earned in the shop to buy upgrades which will increase the output of tomatoes. These upgrades involve increasing tomatoes earned per click or implementing an automatic increase of tomatoes at a certain rate per second. Some examples of shop items include tomato plants, farms and tomato puree factory. One of the goals in Tomato Tycoon is to save up enough tomatoes to prestige in the game, which involves sacrificing all of the players’ tomatoes and upgrades. However, this means that the player now earns a higher amount of tomatoes from upgrades and has access to further upgrades in the shop. Tomato Tycoon has no set ending and can be played continuously until your phone cannot count any higher.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-aB-VSK">
+                                <rect key="frame" x="145" y="69" width="84" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.99607843137254903" green="0.85882352941176465" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="About" image="smallTomato" selectedImage="smallTomato" id="xEQ-bM-uz0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KI-xw-QNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2655" y="-635"/>
+            <point key="canvasLocation" x="2653.5999999999999" y="-635.53223388305855"/>
         </scene>
         <!--Tomato-->
         <scene sceneID="0ic-db-Jj9">
@@ -84,14 +102,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha3-CJ-xc0">
-                                <rect key="frame" x="156" y="568" width="63" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="+100000"/>
-                                <connections>
-                                    <action selector="testTomatoes:" destination="s8u-0c-yqt" eventType="touchUpInside" id="Y7X-Rq-LeY"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Per second" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AwR-d1-pOx">
                                 <rect key="frame" x="272" y="485" width="87" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -107,7 +117,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="test tomatoes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yxR-0V-hiT">
-                                <rect key="frame" x="147" y="554" width="81" height="21"/>
+                                <rect key="frame" x="147" y="563" width="81" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
@@ -127,7 +137,7 @@
                                 <color key="tintColor" red="1" green="0.056107677723830074" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cZ1-K0-qOi">
-                                <rect key="frame" x="16" y="563" width="40" height="40"/>
+                                <rect key="frame" x="50" y="563" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="nomute"/>
                                 <connections>
@@ -135,13 +145,21 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gTn-zM-CD4" customClass="customButton" customModule="Assignment2" customModuleProvider="target">
-                                <rect key="frame" x="301" y="568" width="58" height="30"/>
+                                <rect key="frame" x="266" y="568" width="58" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.028078071964937834" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="RESET"/>
                                 <connections>
                                     <action selector="resetButton:" destination="s8u-0c-yqt" eventType="touchUpInside" id="xds-7C-Jw5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ha3-CJ-xc0">
+                                <rect key="frame" x="156" y="580" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="+100000"/>
+                                <connections>
+                                    <action selector="testTomatoes:" destination="s8u-0c-yqt" eventType="touchUpInside" id="Y7X-Rq-LeY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -163,6 +181,7 @@
         <!--Shop-->
         <scene sceneID="C0d-x3-JFg">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pn2-w3-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="BIn-MO-3NN" customClass="shopTableViewController" customModule="Assignment2" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cTA-nu-mLS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -725,7 +744,6 @@
                         <outlet property="price5Label" destination="mff-Nu-b2X" id="ji9-6G-SQB"/>
                     </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pn2-w3-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2584.8000000000002" y="974.6626686656673"/>
         </scene>

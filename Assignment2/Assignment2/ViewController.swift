@@ -69,6 +69,7 @@ class ViewController: UIViewController {
         currentTomatoLabel.text = "\(Int(currentTomatoes))"
         perClickLabel.text = "\(Int(perClick))"
         autoPerSecondLabel.text = "\(Int(autoPerClick))"
+        progressBar.progress = timesTapped;
     }
     
     
@@ -116,7 +117,32 @@ class ViewController: UIViewController {
         let resetAction = UIAlertAction(title: "Yes", style: .default, handler:
             {
                 (action) in alertController.dismiss(animated: true, completion: nil)
-                currentTomatoes = 0;
+                currentTomatoes = 0
+                perClick = 0
+                autoPerClick = 0
+                timesTapped = 0
+                item1Count = 0
+                item2Count = 0
+                item3Count = 0
+                item4Count = 0
+                item1AutoCount = 0
+                item2AutoCount = 0
+                price1 = 15
+                price2 = 100
+                price3 = 1100
+                price4 = 12000
+                price5 = 135000
+                price1Auto = 500
+                price2Auto = 1250
+                CP1 = 1
+                CP2 = 2
+                CP3 = 10
+                CP4 = 45
+                DP1 = 0
+                DP2 = 0
+                DP3 = 0
+                DP4 = 0
+                DP5 = 0
         })
         let cancelAction = UIAlertAction(title: "No", style: .default, handler: {
             (action) in alertController.dismiss(animated: true, completion: nil)
