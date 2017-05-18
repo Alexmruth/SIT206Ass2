@@ -97,8 +97,8 @@ class shopTableViewController: UITableViewController {
             price1 = 15 * powf(1.15, item1Count);
             price1.round()
             item1Count = item1Count + 1;
-            price1Label.text = "\(price1)"
-            item1PurchaseCount.text = "\(item1Count)"
+            price1Label.text = "\(Int(price1))"
+            item1PurchaseCount.text = "\(Int(item1Count))"
             
             if item1Count >= 25 && DP1 == 0 {
                 doublePower1.isEnabled = true
@@ -115,8 +115,8 @@ class shopTableViewController: UITableViewController {
             price2 = 100 * powf(1.15, item2Count);
             price2.round()
             item2Count = item2Count + 1;
-            price2Label.text = "\(price2)"
-            item2PurchaseCount.text = "\(item2Count)"
+            price2Label.text = "\(Int(price2))"
+            item2PurchaseCount.text = "\(Int(item2Count))"
             
             if item2Count >= 25 && DP2 == 0 {
                 doublePower2.isEnabled = true
@@ -134,8 +134,8 @@ class shopTableViewController: UITableViewController {
             price3 = 1100 * powf(1.15, item3Count);
             price3.round()
             item3Count = item3Count + 1;
-            price3Label.text = "\(price3)"
-            item3PurchaseCount.text = "\(item3Count)"
+            price3Label.text = "\(Int(price3))"
+            item3PurchaseCount.text = "\(Int(item3Count))"
             
             if item3Count >= 25 && DP3 == 0 {
                 doublePower3.isEnabled = true
@@ -152,8 +152,8 @@ class shopTableViewController: UITableViewController {
             price4 = 12000 * powf(1.15, item4Count);
             price4.round()
             item4Count = item4Count + 1;
-            price4Label.text = "\(price4)"
-            item4PurchaseCount.text = "\(item4Count)"
+            price4Label.text = "\(Int(price4))"
+            item4PurchaseCount.text = "\(Int(item4Count))"
             
             if item4Count >= 25 && DP4 == 0 {
                 doublePower4.isEnabled = true
@@ -169,7 +169,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - 5000
             perClick = perClick + (item1Count * CP1)
             CP1 *= 2
-            clickPowerLabel1.text = "+\(CP1) click"
+            clickPowerLabel1.text = "+\(Int(CP1)) click"
             DP1 = 1
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
@@ -180,7 +180,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - 12000
             perClick = perClick + (item2Count * CP2)
             CP2 *= 2
-            clickPowerLabel2.text = "+\(CP2) click"
+            clickPowerLabel2.text = "+\(Int(CP2)) click"
             doublePower2.isEnabled = false
             doublePower2.isHidden = true
             DP2 = 1
@@ -192,7 +192,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - 130000
             perClick = perClick + (item3Count * CP3)
             CP3 *= 2
-            clickPowerLabel3.text = "+\(CP3) click"
+            clickPowerLabel3.text = "+\(Int(CP3)) click"
             doublePower3.isEnabled = false
             doublePower3.isHidden = true
             DP3 = 1
@@ -204,7 +204,7 @@ class shopTableViewController: UITableViewController {
             currentTomatoes = currentTomatoes - 1430000
             perClick = perClick + (item4Count * CP4)
             CP4 *= 2
-            clickPowerLabel4.text = "+\(CP4) click"
+            clickPowerLabel4.text = "+\(Int(CP4)) click"
             doublePower4.isEnabled = false
             doublePower4.isHidden = true
             DP4 = 1
@@ -215,12 +215,12 @@ class shopTableViewController: UITableViewController {
     @IBAction func buyAuto1(_ sender: UIButton) {
         if currentTomatoes >= price1Auto {
             autoPerClick = autoPerClick + 5;
-            currentTomatoes -= price3;
-            price3 = price3 * 1.1;
-            price3.round()
-            item3Count = item3Count + 1;
-            price3Label.text = "\(price3)"
-            item3PurchaseCount.text = "\(item3Count)"
+            currentTomatoes -= price1Auto;
+            price1Auto = price1Auto * 1.1;
+            price1Auto.round()
+            item1AutoCount += 1;
+            price1AutoLabel.text = "\(Int(price1Auto))"
+            item1AutoPurchaseCount.text = "\(Int(item1AutoCount))"
         } else {
             //add popup here
         }
@@ -229,12 +229,12 @@ class shopTableViewController: UITableViewController {
     @IBAction func buyAuto2(_ sender: UIButton) {
         if currentTomatoes >= price2Auto {
             autoPerClick = autoPerClick + 10;
-            currentTomatoes = currentTomatoes - price4;
-            price4 = price4 * 1.1;
-            price4.round()
-            item4Count = item4Count + 1;
-            price4Label.text = "\(price4)"
-            item4PurchaseCount.text = "\(item4Count)"
+            currentTomatoes -= price2Auto;
+            price2Auto = price2Auto * 1.1;
+            price2Auto.round()
+            item2AutoCount += 1;
+            price2AutoLabel.text = "\(Int(price2Auto))"
+            item2AutoPurchaseCount.text = "\(Int(item2AutoCount))"
         } else {
             //add popup here
         }

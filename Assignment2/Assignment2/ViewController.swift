@@ -14,11 +14,6 @@ var upgradeModifier : Float = 0;
 var perClick : Float = 1;
 var autoPerClick : Float = 0;
 
-extension Float {
-    var cleanValue: String {
-        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.00f", self) : String(self)
-    }
-}
 
 class ViewController: UIViewController {
     var timer: Timer?
@@ -52,8 +47,8 @@ class ViewController: UIViewController {
         currentTomatoes += (autoPerClick / 10)
         //roundf(currentTomatoes)
         currentTomatoLabel.text = "\(Int(currentTomatoes))"
-        perClickLabel.text = "\(perClick)"
-        autoPerSecondLabel.text = "\(autoPerClick)"
+        perClickLabel.text = "\(Int(perClick))"
+        autoPerSecondLabel.text = "\(Int(autoPerClick))"
     }
     
     @IBAction func tomatoClicked(_ sender: UIButton) {
