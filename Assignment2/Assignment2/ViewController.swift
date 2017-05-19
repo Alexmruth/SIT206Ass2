@@ -9,22 +9,21 @@
 import UIKit
 import AVFoundation
 
-var currentTomatoes : Float = 0;
-var totalTomatoes : Float = 0;
-var perClick : Float = 1;
-var autoPerClick : Float = 0;
-var timesTapped : Float = 0;
-var rain : Bool = false;
+var currentTomatoes : Float = 0
+var totalTomatoes : Float = 0
+var perClick : Float = 1
+var autoPerClick : Float = 0
+var timesTapped : Float = 0
+var rain : Bool = false
 
 class ViewController: UIViewController {
     var timer: Timer?
     var tomatoTimer: Timer?
     var tomatoRainTimer: Timer?
     var endRain: Timer?
+    var resetTimer: Timer?
     var gravity : UIGravityBehavior?
     var animator : UIDynamicAnimator?
-    //var progressView: UIProgressView?
-    //var progressLabel: UILabel?
     
     var soundPlayer: AVAudioPlayer?
     var elapsedTime: TimeInterval = 0
@@ -32,16 +31,17 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //update timer
+        // AUTO UPDATE TIMER *****
         timer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
         
-        //register an animator
+        // ANIMATION CODE *****
         animator = UIDynamicAnimator(referenceView: self.view)
         gravity = UIGravityBehavior(items: [])
         let vector = CGVector(dx: 0.0, dy: 0.1) // gravity magnitude and direction
         gravity?.gravityDirection = vector
         animator?.addBehavior(gravity!)
         
+        // AUDIO PLAYER CODE *****
         let path = Bundle.main.path (forResource:"song", ofType:"mp3")
         let url = URL(fileURLWithPath: path!)
         do{try soundPlayer = AVAudioPlayer(contentsOf: url)}
@@ -50,34 +50,34 @@ class ViewController: UIViewController {
             soundPlayer!.currentTime = elapsedTime
             soundPlayer!.play()
         }
-        self.progressBar.progress = 0;
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
+    // OUTLETS *****
     @IBOutlet weak var tomato: UIButton!
     @IBOutlet weak var currentTomatoLabel: UILabel!
     @IBOutlet weak var autoPerSecondLabel: UILabel!
     @IBOutlet weak var perClickLabel: UILabel!
     @IBOutlet var progressBar: UIProgressView!
     
+    // AUTO UPDATE FUNCTION *****
     func update() {
         currentTomatoes += (autoPerClick / 10)
-        //roundf(currentTomatoes)
         currentTomatoLabel.text = "\(Int(currentTomatoes))"
         perClickLabel.text = "\(Int(perClick))"
         autoPerSecondLabel.text = "\(Int(autoPerClick))"
-        progressBar.progress = timesTapped;
+        progressBar.progress = timesTapped
     }
     
-    
+    // BIG TOMATO BUTTON FUNCTION *****
     @IBAction func tomatoClicked(_ sender: UIButton) {
-        currentTomatoes += perClick
-        timesTapped += 0.01;
-        self.progressBar.progress = timesTapped;
+        currentTomatoes += perClick // INCREASES TOMATOES ACCORDING TO CLICK POWER
+        timesTapped += 0.01 // USED FOR PROGRESS BAR
+        self.progressBar.progress = timesTapped
         
+        // IF-FUNCTION WHICH ACTIVATES TOMATO RAIN AFTER PROGRESS BAR IS FULL
         if progressBar.progress == 1 {
             rain = true
             timesTapped = 0
@@ -88,12 +88,7 @@ class ViewController: UIViewController {
         }
     }
     
-    func tinyTomatoClicked(sender : UIButton) {
-        sender.setImage(UIImage(named: "exploded"), for: .normal)
-        UIView.animate(withDuration: 0.4, animations: {sender.alpha = 0}, completion: { (true) in sender.removeFromSuperview()})
-        currentTomatoes += 10 + (currentTomatoes / 10)
-    }
-    
+    // TOMATO RAIN FUNCTION 88888
     func tomatoRain(_ : Any){
         //pick random x position for tomato
         let xCoordiante = arc4random() % UInt32(self.view.bounds.width)
@@ -104,19 +99,31 @@ class ViewController: UIViewController {
         self.view.addSubview(btn)
         gravity?.addItem( (btn as UIView))
     }
+    
+    // TINY TOMATO ONCE CLICKED FOR TOMATO RAIN *****
+    func tinyTomatoClicked(sender : UIButton) {
+        sender.setImage(UIImage(named: "exploded"), for: .normal)
+        UIView.animate(withDuration: 0.4, animations: {sender.alpha = 0}, completion: { (true) in sender.removeFromSuperview()})
+        currentTomatoes += 10 + (currentTomatoes / 20) // GIVES BONUS TOMATOES
+    }
+
+    // ENDS THE TOMATO RAIN TIMER *****
     func endRain(_ : Any){
         tomatoRainTimer?.invalidate()
     }
     
+    // 100,000 TOMATOES USED FOR QUICK TESTING PURPOSES *****
     @IBAction func testTomatoes(_ sender: UIButton) {
         currentTomatoes = currentTomatoes + 100000;
     }
     
+    // RESEST BUTTON *****
     @IBAction func resetButton(_ sender: UIButton) {
         let alertController = UIAlertController(title: "Warning", message : "Are you sure you want to reset your progress?", preferredStyle: .alert)
         let resetAction = UIAlertAction(title: "Yes", style: .default, handler:
             {
                 (action) in alertController.dismiss(animated: true, completion: nil)
+                
                 currentTomatoes = 0
                 perClick = 0
                 autoPerClick = 0
