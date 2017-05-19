@@ -119,11 +119,13 @@ class ViewController: UIViewController {
     
     // RESEST BUTTON *****
     @IBAction func resetButton(_ sender: UIButton) {
+        // OPENS POP UP
         let alertController = UIAlertController(title: "Warning", message : "Are you sure you want to reset your progress?", preferredStyle: .alert)
         let resetAction = UIAlertAction(title: "Yes", style: .default, handler:
             {
                 (action) in alertController.dismiss(animated: true, completion: nil)
                 
+                // RESETS ALL VARIABLES TO THEIR ORIGINAL VALUES
                 currentTomatoes = 0
                 perClick = 0
                 autoPerClick = 0
@@ -160,6 +162,7 @@ class ViewController: UIViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
+    // MUSIC MUTE/UNMUTE BUTTON *****
     @IBAction func sound(_ sender: UIButton) {
         if songPause == false && soundPlayer != nil {
             elapsedTime = soundPlayer!.currentTime
