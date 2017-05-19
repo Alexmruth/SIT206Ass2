@@ -83,12 +83,12 @@ class ViewController: UIViewController {
         self.progressBar.progress = timesTapped
         
         // IF-FUNCTION WHICH ACTIVATES TOMATO RAIN AFTER PROGRESS BAR IS FULL
-        if progressBar.progress == 1 {
+        if progressBar.progress >= 0.99 {
             rain = true
             timesTapped = 0
             progressBar.progress = 0
             
-            tomatoRainTimer = Timer.scheduledTimer(timeInterval: 0.2,  target: self, selector: #selector(ViewController.tomatoRain(_ :)), userInfo: nil, repeats: true )
+            tomatoRainTimer = Timer.scheduledTimer(timeInterval: 0.5,  target: self, selector: #selector(ViewController.tomatoRain(_ :)), userInfo: nil, repeats: true )
             endRain = Timer.scheduledTimer(timeInterval: 10,  target: self, selector: #selector(ViewController.endRain(_ :)), userInfo: nil, repeats: false )
         }
     }
@@ -139,6 +139,7 @@ class ViewController: UIViewController {
                 item2Count = 0
                 item3Count = 0
                 item4Count = 0
+                item5Count = 0
                 item1AutoCount = 0
                 item2AutoCount = 0
                 price1 = 15
@@ -152,6 +153,7 @@ class ViewController: UIViewController {
                 CP2 = 2
                 CP3 = 10
                 CP4 = 45
+                CP5 = 360
                 DP1 = 0
                 DP2 = 0
                 DP3 = 0

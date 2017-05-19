@@ -96,6 +96,8 @@ class shopTableViewController: UITableViewController {
         item3PurchaseCount.text = "\(Int(item3Count))"
         price4Label.text = "\(Int(price4))"
         item4PurchaseCount.text = "\(Int(item4Count))"
+        price5Label.text = "\(Int(price5))"
+        item5PurchaseCount.text = "\(Int(item5Count))"
         clickPowerLabel1.text = "+\(Int(CP1)) click"
         clickPowerLabel2.text = "+\(Int(CP2)) click"
         clickPowerLabel3.text = "+\(Int(CP3)) click"
@@ -255,19 +257,6 @@ class shopTableViewController: UITableViewController {
         }
     }
     @IBAction func doublePower4(_ sender: UIButton) {
-        if currentTomatoes >= 16445000 {
-            currentTomatoes = currentTomatoes - 16445000
-            perClick = perClick + (item5Count * CP5)
-            CP5 *= 2
-            clickPowerLabel5.text = "+\(Int(CP5)) click"
-            doublePower5.isEnabled = false
-            doublePower5.isHidden = true
-            DP5 = 1
-        } else {
-            cantAfford()
-        }
-    }
-    @IBAction func doublePower5(_ sender: customButton) {
         if currentTomatoes >= 1430000 {
             currentTomatoes = currentTomatoes - 1430000
             perClick = perClick + (item4Count * CP4)
@@ -276,6 +265,19 @@ class shopTableViewController: UITableViewController {
             doublePower4.isEnabled = false
             doublePower4.isHidden = true
             DP4 = 1
+        } else {
+            cantAfford()
+        }
+    }
+    @IBAction func doublePower5(_ sender: customButton) {
+        if currentTomatoes >= 16445000 {
+            currentTomatoes = currentTomatoes - 16445000
+            perClick = perClick + (item5Count * CP5)
+            CP5 *= 2
+            clickPowerLabel5.text = "+\(Int(CP5)) click"
+            doublePower5.isEnabled = false
+            doublePower5.isHidden = true
+            DP5 = 1
         } else {
             cantAfford()
         }
