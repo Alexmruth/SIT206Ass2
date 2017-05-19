@@ -9,14 +9,16 @@
 import UIKit
 import AVFoundation
 
+// PUBLIC VARIABLES *****
 var currentTomatoes : Float = 0
 var totalTomatoes : Float = 0
 var perClick : Float = 1
 var autoPerClick : Float = 0
 var timesTapped : Float = 0
-var rain : Bool = false
+
 
 class ViewController: UIViewController {
+    // VARIABLES *****
     var timer: Timer?
     var tomatoTimer: Timer?
     var tomatoRainTimer: Timer?
@@ -28,6 +30,8 @@ class ViewController: UIViewController {
     var soundPlayer: AVAudioPlayer?
     var elapsedTime: TimeInterval = 0
     var songPause = false
+    
+    var rain : Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,7 @@ class ViewController: UIViewController {
         if soundPlayer != nil {
             soundPlayer!.currentTime = elapsedTime
             soundPlayer!.play()
+            soundPlayer!.numberOfLoops = -1
         }
     }
     override func didReceiveMemoryWarning() {

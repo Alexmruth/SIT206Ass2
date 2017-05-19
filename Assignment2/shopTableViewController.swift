@@ -7,11 +7,13 @@
 //
 
 import UIKit
-
+// PUBLIC VARIABLES *****
 var item1Count : Float = 0
 var item2Count : Float = 0
 var item3Count : Float = 0
 var item4Count : Float = 0
+var item5Count : Float = 0
+
 var item1AutoCount : Float = 0
 var item2AutoCount : Float = 0
 
@@ -28,6 +30,7 @@ var CP1 : Float = 1
 var CP2 : Float = 2
 var CP3 : Float = 10
 var CP4 : Float = 45
+var CP5 : Float = 360
 
 var DP1 = 0
 var DP2 = 0
@@ -39,29 +42,22 @@ class shopTableViewController: UITableViewController {
     var timer : Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
+        // AUTO UPDATE TIMER
         timer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(ViewController.update), userInfo: nil, repeats: true)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 2
     }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
         return 6
     }
 
-    //var ViewController: ViewController?
 
-
+    // OUTLETS *****
     @IBOutlet weak var clickPowerLabel1: UILabel!
     @IBOutlet weak var clickPowerLabel2: UILabel!
     @IBOutlet weak var clickPowerLabel3: UILabel!
@@ -88,7 +84,9 @@ class shopTableViewController: UITableViewController {
     @IBOutlet weak var doublePower2: UIButton!
     @IBOutlet weak var doublePower3: UIButton!
     @IBOutlet weak var doublePower4: UIButton!
+    @IBOutlet weak var doublePower5: customButton!
     
+    // AUTO UPDATE TIMER - MAINLY USED FOR UPDATING LABELS ONCE GAME IS RESET
     func update(){
         price1Label.text = "\(Int(price1))"
         item1PurchaseCount.text = "\(Int(item1Count))"
@@ -108,6 +106,7 @@ class shopTableViewController: UITableViewController {
         item2AutoPurchaseCount.text = "\(Int(item2AutoCount))"
     }
     
+    // ALERT POP UP FUNCTION WHEN PLAYER HAS INSUFFICIENT FUNDS
     func cantAfford() {
         let alertController = UIAlertController(title: "Sorry!", message : "Insufficient tomatoes", preferredStyle: .alert)
         let resetAction = UIAlertAction(title: "Okay", style: .default, handler:
@@ -118,23 +117,26 @@ class shopTableViewController: UITableViewController {
         alertController.addAction(resetAction)
         self.present(alertController, animated: true, completion: nil)
     }
+    
+    // BUY ITEM 1-5 BUTTONS ARE FOR CLICK POWER UPGRADES
     @IBAction func buyItem1(_ sender: UIButton) {
         
         if currentTomatoes >= price1 {
-            perClick = perClick + CP1;
+            perClick = perClick + CP1; // INCREASES CLICK POWER
             currentTomatoes = currentTomatoes - price1;
-            price1 = 15 * powf(1.15, item1Count);
+            price1 = 15 * powf(1.15, item1Count); // INCREASES PRICE OF ITEM ONCE PURCHASED
             price1.round()
             item1Count = item1Count + 1;
             price1Label.text = "\(Int(price1))"
             item1PurchaseCount.text = "\(Int(item1Count))"
             
+            // DOUBLE POWER BUTTON VALIDATION
             if item1Count >= 25 && DP1 == 0 {
                 doublePower1.isEnabled = true
                 doublePower1.isHidden = false
             }
         } else {
-            cantAfford()
+            cantAfford() // CALLS THE ALERT CONTROLLER FUNCTION
         }
     }
     @IBAction func buyItem2(_ sender: UIButton) {
@@ -155,7 +157,6 @@ class shopTableViewController: UITableViewController {
             cantAfford()
         }
     }
-
     @IBAction func buyItem3(_ sender: UIButton) {
         if currentTomatoes >= price3 {
             perClick = perClick + CP3;
@@ -192,14 +193,35 @@ class shopTableViewController: UITableViewController {
             cantAfford()
         }
     }
+    @IBAction func buyItem5(_ sender: UIButton) {
+        if currentTomatoes >= price5 {
+            perClick = perClick + CP5;
+            currentTomatoes = currentTomatoes - price5;
+            price5 = 135000 * powf(1.15, item5Count);
+            price5.round()
+            item5Count = item5Count + 1;
+            price5Label.text = "\(Int(price5))"
+            item5PurchaseCount.text = "\(Int(item5Count))"
+            
+            if item5Count >= 25 && DP4 == 0 {
+                doublePower5.isEnabled = true
+                doublePower5.isHidden = false
+            }
+        } else {
+            cantAfford()
+        }
+    }
+    
+    // DOUBLE POWER 1-5 DOUBLE THE CLICKING POWER OF THAT ITEM
     @IBAction func doublePower1(_ sender: UIButton) {
         
         if currentTomatoes >= 5000 && DP1 == 0{
             currentTomatoes = currentTomatoes - 5000
-            perClick = perClick + (item1Count * CP1)
-            CP1 *= 2
+            perClick = perClick + (item1Count * CP1) // DOUBLES PREVIOUSLY PURCHASED LEVELS AS WELL
+            CP1 *= 2 // DOUBLES CLICK POWER
             clickPowerLabel1.text = "+\(Int(CP1)) click"
             DP1 = 1
+            // REMOVES BUTTON
             doublePower1.isEnabled = false
             doublePower1.isHidden = true
         } else {
@@ -233,6 +255,19 @@ class shopTableViewController: UITableViewController {
         }
     }
     @IBAction func doublePower4(_ sender: UIButton) {
+        if currentTomatoes >= 16445000 {
+            currentTomatoes = currentTomatoes - 16445000
+            perClick = perClick + (item5Count * CP5)
+            CP5 *= 2
+            clickPowerLabel5.text = "+\(Int(CP5)) click"
+            doublePower5.isEnabled = false
+            doublePower5.isHidden = true
+            DP5 = 1
+        } else {
+            cantAfford()
+        }
+    }
+    @IBAction func doublePower5(_ sender: customButton) {
         if currentTomatoes >= 1430000 {
             currentTomatoes = currentTomatoes - 1430000
             perClick = perClick + (item4Count * CP4)
@@ -246,6 +281,7 @@ class shopTableViewController: UITableViewController {
         }
     }
     
+    // BUY AUTO 1 & 2 ARE FOR AUTO CLICKER ITEMS
     @IBAction func buyAuto1(_ sender: UIButton) {
         if currentTomatoes >= price1Auto {
             autoPerClick = autoPerClick + 5;
@@ -273,63 +309,4 @@ class shopTableViewController: UITableViewController {
             cantAfford()
         }
     }
-
-
-    
-
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

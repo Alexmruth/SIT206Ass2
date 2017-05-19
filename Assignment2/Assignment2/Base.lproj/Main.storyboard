@@ -21,30 +21,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="30" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-8x-TEj">
-                                <rect key="frame" x="40" y="145" width="295" height="376"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-aB-VSK">
+                                <rect key="frame" x="145" y="48" width="84" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Tomato Tycoon is a clicker game (also known as incremental or idle games) where the aim of the game is to click the tomato to earn more tomatoes. The player can spend the tomatoes they have earned in the shop to buy upgrades which will increase the output of tomatoes. These upgrades involve increasing tomatoes earned per click or implementing an automatic increase of tomatoes at a certain rate per second. Some examples of shop items include tomato plants, farms and tomato puree factory. One of the goals in Tomato Tycoon is to save up enough tomatoes to prestige in the game, which involves sacrificing all of the players’ tomatoes and upgrades. However, this means that the player now earns a higher amount of tomatoes from upgrades and has access to further upgrades in the shop. Tomato Tycoon has no set ending and can be played continuously until your phone cannot count any higher.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6rs-aB-VSK">
-                                <rect key="frame" x="145" y="69" width="84" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="35" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncf-8x-TEj">
+                                <rect key="frame" x="40" y="124" width="295" height="436"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <mutableString key="text">Created by Alex Ruth - 216106075  for iOS Programming Assignment 2  Tomato Tycoon is a clicker game (also known as incremental or idle games) where the aim of the game is to click the tomato to earn more tomatoes. The player can spend the tomatoes they have earned in the shop to buy upgrades which will increase the output of tomatoes. These upgrades involve increasing tomatoes earned per click or implementing an automatic increase of tomatoes at a certain rate per second. Some examples of shop items include tomato plants, farms and tomato puree factory. One of the goals in Tomato Tycoon is to save up enough tomatoes to prestige in the game, which involves sacrificing all of the players’ tomatoes and upgrades. However, this means that the player now earns a higher amount of tomatoes from upgrades and has access to further upgrades in the shop. Tomato Tycoon has no set ending and can be played continuously until your phone cannot count any higher.</mutableString>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.85882352941176465" blue="0.55294117647058827" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="About" image="smallTomato" selectedImage="smallTomato" id="xEQ-bM-uz0"/>
+                    <tabBarItem key="tabBarItem" title="About" image="Question_Mark" selectedImage="Question_Mark" id="xEQ-bM-uz0"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4KI-xw-QNr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2653.5999999999999" y="-635.53223388305855"/>
+            <point key="canvasLocation" x="2781.5999999999999" y="860.41979010494754"/>
         </scene>
         <!--Tomato-->
         <scene sceneID="0ic-db-Jj9">
@@ -123,7 +123,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22F-2D-I0R">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="22F-2D-I0R">
                                 <rect key="frame" x="87" y="183" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="tomato"/>
@@ -176,7 +176,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULa-ay-iJr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2909.5999999999999" y="69.715142428785612"/>
+            <point key="canvasLocation" x="1137" y="860"/>
         </scene>
         <!--Shop-->
         <scene sceneID="C0d-x3-JFg">
@@ -526,6 +526,9 @@
                                                     <state key="normal" title="Buy">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="buyItem5:" destination="BIn-MO-3NN" eventType="touchUpInside" id="aFU-Pb-r21"/>
+                                                    </connections>
                                                 </button>
                                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" showsTouchWhenHighlighted="YES" lineBreakMode="characterWrap" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ktZ-a2-7kY" customClass="customButton" customModule="Assignment2" customModuleProvider="target">
                                                     <rect key="frame" x="88" y="3" width="94" height="36"/>
@@ -542,6 +545,9 @@
                                                             </fragment>
                                                         </attributedString>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="doublePower5:" destination="BIn-MO-3NN" eventType="touchUpInside" id="gch-TD-ukf"/>
+                                                    </connections>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qrI-9h-R9b">
                                                     <rect key="frame" x="339" y="12" width="28" height="21"/>
@@ -732,7 +738,7 @@
                             <outlet property="delegate" destination="BIn-MO-3NN" id="Won-cZ-TK2"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Shop" image="smallTomato" selectedImage="smallTomato" id="ZHM-2b-19Q">
+                    <tabBarItem key="tabBarItem" title="Shop" image="shop" selectedImage="shop" id="ZHM-2b-19Q">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <navigationItem key="navigationItem" id="7jI-Il-8V0"/>
@@ -748,6 +754,7 @@
                         <outlet property="doublePower2" destination="yNu-99-cmm" id="7at-4c-S4u"/>
                         <outlet property="doublePower3" destination="0PS-ny-dRp" id="mm1-PX-jfV"/>
                         <outlet property="doublePower4" destination="r3h-yb-Hwm" id="G8I-AG-Ler"/>
+                        <outlet property="doublePower5" destination="ktZ-a2-7kY" id="qAj-wh-snb"/>
                         <outlet property="item1AutoPurchaseCount" destination="HaA-DG-0Nz" id="bf9-q7-R8E"/>
                         <outlet property="item1PurchaseCount" destination="gJN-WW-Xks" id="Y7V-sG-yLU"/>
                         <outlet property="item2AutoPurchaseCount" destination="XrZ-ja-FZN" id="5mg-WW-GdB"/>
@@ -766,7 +773,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pn2-w3-0wV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2584.8000000000002" y="974.6626686656673"/>
+            <point key="canvasLocation" x="1953" y="860"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xju-nt-z8V">
@@ -791,8 +798,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Question_Mark" width="30" height="30"/>
         <image name="nomute" width="400" height="400"/>
-        <image name="smallTomato" width="40" height="40"/>
+        <image name="shop" width="30" height="30"/>
+        <image name="smallTomato" width="30" height="30"/>
         <image name="tomato" width="2576" height="2491"/>
     </resources>
 </document>
