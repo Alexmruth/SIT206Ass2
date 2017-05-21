@@ -132,7 +132,7 @@ class ViewController: UIViewController {
                 
                 // RESETS ALL VARIABLES TO THEIR ORIGINAL VALUES
                 currentTomatoes = 0
-                perClick = 0
+                perClick = 1
                 autoPerClick = 0
                 timesTapped = 0
                 item1Count = 0
